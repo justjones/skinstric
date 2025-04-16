@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+
+.main {
+  position: relative;
+  background-color: #fcfcfc;
+  color: #1A1B1C;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main__title {
+  width: 680px;
+  height: 240px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main__title h1 {
+  font-size: 128px;
+  font-weight: 300;
+  line-height: 120px;
+  letter-spacing: -7%;
+}
+
+/* Shared image styles */
+.main__image {
+  position: absolute;
+  width: 602px;
+  height: 602px;
+  top: 50%;
+  transform: translateY(-50%);
+  object-fit: cover;
+  z-index: 0;
+}
+
+.main__image.left {
+  left: -301px;
+}
+
+.main__image.right {
+  right: -301px;
+  transform: translateY(-50%) scaleX(-1);
+}
+
+/* Side wrapper (left + right) */
+.main__side {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.main__side.left {
+  left: 0;
+  margin-left: 18px;  
+}
+
+.main__side.right {
+  right: 0;
+  margin-right: 18px;
+}
+
+/* Button + text wrapper */
+.side-button-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  flex-direction: row;
+}
+
+/* Text next to button */
+.side-text {
+  color: #1A1B1C;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bold;
+  white-space: nowrap;
+  margin: 0 16px;
+}
+
+/* Diamond button */
+.diamond-button {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #1A1B1C;
+  background-color: #fcfcfc;
+  transform: rotate(45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+}
+
+/* Triangle inside diamond */
+.triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  transform: rotate(-45deg);
+}
+
+.triangle.left {
+  border-width: 6px 10px 6px 0;
+  border-color: transparent #1A1B1C transparent transparent;
+}
+
+.triangle.right {
+  border-width: 6px 0 6px 10px;
+  border-color: transparent transparent transparent #1A1B1C;
+  
+}
+
+

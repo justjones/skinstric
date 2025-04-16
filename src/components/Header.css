@@ -1,0 +1,43 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #FCFCFC;
+    color: rgb(15, 15, 15);
+    font-size: 18px;
+  }
+  
+  .header-left {
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  
+  .enter-code-btn {
+    background-color: #0c0c0c;
+    color: #f3efef;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .enter-code-btn:hover {
+    background-color: #131212;
+  }
+
+  .logo {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .logo_intro {
+    font-weight: 300;
+    margin-left: 18px;
+  }
+  
+  
