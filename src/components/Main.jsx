@@ -6,9 +6,11 @@ import Header from './Header';
 import Footer from './Footer';
 
 
+
+
 export default function Main() {
-  return (
-    <>
+  return (   
+     <>
     <Header rightButtonText="ENTER CODE" />
     <main className="main">
       {/* Left decorative image */}

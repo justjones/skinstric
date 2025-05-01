@@ -1,0 +1,19 @@
+
+  
+  .estimate h1 {
+    margin-bottom: 10px;
+  }
+  
+  .estimate__image-wrapper {
+    width: 600px;
+    height: auto;
+    margin: 40px auto;
+  }
+  
+  .estimate__merged-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+  
