@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.start-analysis h1 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Diamond layout container */
+.diamond-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4rem;  
+  margin-bottom: 2rem;
+  max-width: 1240px;
+  margin-inline: auto;
+}
+
+.diamond {
+  position: relative;
+  max-width: 600px;
+  margin-top: 100px;
+}
+
+
+.diamond-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none; 
+}
+
+
+.click-zone {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+}
+
+
+/* Upload result and location info */
+.upload-section {
+  margin-top: 2rem;
+}
+
+.results {
+  margin-top: 1rem;
+  text-align: left;
+  max-width: 600px;
+  margin-inline: auto;
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+
+

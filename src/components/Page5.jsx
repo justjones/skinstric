@@ -6,14 +6,12 @@ import { useNavigate, useLocation } from "react-router-dom";
 import BackFooter from "./BackFooter";
 import ForwardFooter from "./ForwardFooter";
 
+
+
 export default function Page5() {
   const navigate = useNavigate();
   const locationData = useLocation();
   const userLocation = locationData.state?.location || "Unknown";
-
-  const handleProceed = () => {
-    navigate("/page6");
-  };
 
   return (
     <div className="page5">
@@ -35,7 +33,7 @@ export default function Page5() {
         </div>
       </div>
       <BackFooter />
-      <ForwardFooter to="/page6" />
+      <ForwardFooter to="/phasetwo/startAnalysis" />
     </div>
   );
 }

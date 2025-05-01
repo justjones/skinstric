@@ -2,11 +2,14 @@ import React from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
 
-export default function Header({ rightButtonText, onRightButtonClick }) {
+// ✅ CORRECT
+export default function Header({ title = "INTRO", rightButtonText, onRightButtonClick }) {
+
   return (
     <div className="header">
       <Link to="/" className="logo l">
-        SKINSTRIC <span className="logo_intro">[ INTRO ]</span>
+        SKINSTRIC <span className="logo_intro">[{title}]</span>
+
       </Link>
 
       {rightButtonText && (
