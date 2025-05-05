@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import BackFooter from '../components/BackFooter';
 import rombuses_center from '../assets/rombuses_center.png';
@@ -9,13 +9,13 @@ const Page3 = () => {
   const [isTyping, setIsTyping] = useState(false);
   const [introText, setIntroText] = useState('');
   const [submitting, setSubmitting] = useState(false);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleNavigation = () => {
     if (!introText.trim()) return;
 
     setSubmitting(true);
-    try {      
+    try {
       navigate('/page4', { state: { name: introText.trim() } });
     } finally {
       setSubmitting(false);
@@ -51,7 +51,7 @@ const Page3 = () => {
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' && !e.shiftKey) {
                     e.preventDefault();
-                    handleNavigation(); 
+                    handleNavigation();
                   }
                 }}
               />

@@ -24,26 +24,31 @@ export default function Page4() {
   }, [name, navigate]);
 
   const handleNext = async () => {
-    if (!locationText.trim()) return;
+    if (!locationText.trim()) {
+      alert('Please enter your location to continue.');
+      return;
+    }
 
     setSubmitting(true);
-    try {
-      const payload = {
-        name: name.trim(),
-        location: locationText.trim(),
-      };
-      console.log("Submitting to API:", payload);
+    const payload = {
+      name: name.trim(),
+      location: locationText.trim(),
+    };
 
+    try {
+      console.log("Submitting to API:", payload);
       await sendPhaseOneData(payload);
+
+
       navigate('/page5', {
         state: {
           name: payload.name,
           location: payload.location,
-        }
+        },
       });
     } catch (error) {
       console.error('Failed to submit location:', error);
-      
+      alert('Something went wrong submitting your data. Please try again.');
     } finally {
       setSubmitting(false);
     }
@@ -52,7 +57,6 @@ export default function Page4() {
   return (
     <div className="page3">
       <Header rightButtonText={null} />
-
       <h2 className="page3__intro-text">To start analysis</h2>
 
       <div className="page3__main">
@@ -65,7 +69,6 @@ export default function Page4() {
             alt="rombuses_center"
             className="page3__diamond-image"
           />
-
           <div className="page3__diamond-text">
             {isTyping ? (
               <input
@@ -91,7 +94,8 @@ export default function Page4() {
           </div>
         </div>
       </div>
-      <ForwardFooter to="/page5" />
+
+      <ForwardFooter to={null} white={false} onClick={handleNext} />
       <BackFooter />
     </div>
   );

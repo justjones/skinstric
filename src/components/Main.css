@@ -8,20 +8,20 @@
 }
 
 html, body {
-  margin: 0;
-  padding: 0;
   height: 100%;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+  background-color: #fcfcfc;
+  color: #1A1B1C;
 }
-
 
 .main {
   position: relative;
-  background-color: #fcfcfc;
-  color: #1A1B1C;
-  min-height: 100vh;
+  height: calc(100vh - 100px);
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .main__title {
@@ -31,16 +31,16 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 
 .main__title h1 {
-  font-size: 128px;
+  font-size: 100px;
   font-weight: 300;
-  line-height: 120px;
-  letter-spacing: -7%;
+  line-height: 1.2;
+  letter-spacing: -0.07em;
 }
 
-/* Shared image styles */
 .main__image {
   position: absolute;
   width: 602px;
@@ -51,16 +51,15 @@ html, body {
   z-index: 0;
 }
 
-.main__image.left {
-  left: -301px;
+.main__image--left {
+  left: -350px;
 }
 
-.main__image.right {
-  right: -301px;
+.main__image--right {
+  right: -350px;
   transform: translateY(-50%) scaleX(-1);
 }
 
-/* Side wrapper (left + right) */
 .main__side {
   position: absolute;
   top: 50%;
@@ -71,37 +70,34 @@ html, body {
   z-index: 2;
 }
 
-.main__side.left {
+.main__side--left {
   left: 0;
-  margin-left: 18px;  
+  margin-left: 18px;
 }
 
-.main__side.right {
+.main__side--right {
   right: 0;
   margin-right: 18px;
 }
 
-/* Button + text wrapper */
-.side-button-wrapper {
+.main__button-wrapper {
   display: flex;
   align-items: center;
   gap: 12px;
   margin-top: 24px;
-  flex-direction: row;
+  text-decoration: none;
+  color: inherit;
+  z-index: 3;
 }
 
-/* Text next to button */
-.side-text {
-  color: #1A1B1C;
+.main__button-text {
   font-size: 14px;
   text-transform: uppercase;
   font-weight: bold;
   white-space: nowrap;
-  margin: 0 16px;
 }
 
-/* Diamond button */
-.diamond-button {
+.main__diamond {
   width: 50px;
   height: 50px;
   border: 2px solid #1A1B1C;
@@ -109,26 +105,39 @@ html, body {
   transform: rotate(45deg);
   display: flex;
   align-items: center;
-  justify-content: center;  
+  justify-content: center;
 }
 
-/* Triangle inside diamond */
-.triangle {
+.main__triangle {
   width: 0;
   height: 0;
   border-style: solid;
   transform: rotate(-45deg);
 }
 
-.triangle.left {
+.main__triangle--left {
   border-width: 6px 10px 6px 0;
   border-color: transparent #1A1B1C transparent transparent;
 }
 
-.triangle.right {
+.main__triangle--right {
   border-width: 6px 0 6px 10px;
   border-color: transparent transparent transparent #1A1B1C;
-  
 }
 
+.main__button-wrapper--reverse {
+  flex-direction: row-reverse;
+}
 
+.main__footer-container {
+  position: absolute;
+  bottom: 20px;
+  left: 32px;
+  z-index: 2;
+}
+
+.main__footer {
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.6;
+}

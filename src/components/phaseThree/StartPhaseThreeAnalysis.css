@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body {
+    font-family: "Inter", sans-serif;
+}
+
+.start-phase-three-analysis_title {
+   font-weight: 600;
+   font-size: 16px;
+   line-height: 24px;   
+   margin-left: 14px; 
+   letter-spacing: -1px;
+}
+
+.images {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 100px;
+  }
+
+.right {
+    opacity: 0.5;
+}
+
+  .permission-overlay {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #000;
+    color: #fff;
+    width: 320px;
+    padding: 24px 16px;
+    text-align: center;
+    z-index: 100;
+    font-family: "Inter", sans-serif;
+  }
+  
+  .permission-text {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    background-color: transparent;
+    color: white;
+  }
+  
+  .permission-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .permission-buttons button {
+    flex: 1;
+    background: none;
+    border: none;
+    color: #f5f1f1;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 10px;
+    text-transform: uppercase;
+    background-color: black;
+  }
+  
+  .permission-buttons button:first-child {
+    text-align: left;
+  }
+  
+  .permission-buttons button:last-child {
+    text-align: right;
+  }
+
+  .error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  
+  
