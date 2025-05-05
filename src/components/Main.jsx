@@ -3,48 +3,55 @@ import './Main.css';
 import LeftImage from '../assets/left.png';
 import { Link } from 'react-router-dom';
 import Header from './Header';
-import Footer from './Footer';
-
-
-
 
 export default function Main() {
-  return (   
-     <>
-    <Header rightButtonText="ENTER CODE" />
-    <main className="main">
-      {/* Left decorative image */}
-      <img src={LeftImage} alt="Left graphic" className="main__image left" />
+  return (
+    <>
+      <Header rightButtonText="ENTER CODE" />
+      <main className="main">
+        {/* Left image */}
+        <img src={LeftImage} alt="Left graphic" className="main__image main__image--left" />
 
-      {/* Left button + text */}
-      <div className="main__side left">
-        <div className="side-button-wrapper">
-          <div className="diamond-button">
-            <div className="triangle left" />
+        {/* Left button */}
+        <div className="main__side main__side--left">
+          <div className="main__button-wrapper">
+            <div className="main__diamond">
+              <div className="main__triangle main__triangle--left" />
+            </div>
+            <span className="main__button-text">Discover A.I.</span>
           </div>
-          <span className="side-text">Discover A.I.</span>
         </div>
-      </div>
 
-      {/* Center title */}
-      <div className="main__title">
-        <h1>Sophisticated skincare</h1>
-      </div>
+        {/* Title */}
+        <div className="main__title">
+          <h1>Sophisticated skincare</h1>
+        </div>
 
-      {/* Right decorative image */}
-      <img src={LeftImage} alt="Right graphic" className="main__image right" />
+        {/* Right image */}
+        <img src={LeftImage} alt="Right graphic" className="main__image main__image--right" />
 
-      {/* Right button + text */}
-      <div className="main__side right">
-      <Link to="/test" className="side-button-wrapper">
-  <span className="side-text">Take Test</span>
-  <div className="diamond-button">
-    <div className="triangle right" />
-  </div>
-  </Link>
+        {/* Right button */}
+        <div className="main__side main__side--right">
+          <Link to="/test" className="main__button-wrapper main__button-wrapper--reverse">
+            <div className="main__diamond">
+              <div className="main__triangle main__triangle--right" />
+            </div>
+            <span className="main__button-text">Take Test</span>
+          </Link>
+
+        </div>
+        <div className="main__footer-container">
+  <footer className="main__footer">
+    <p>
+      Skinstric developed an A.I. that creates <br />
+      a highly-personalised routine tailored to <br />
+      what your skin needs.
+    </p>
+  </footer>
 </div>
-    </main>
-    <Footer />
+      </main>
+      
+      
     </>
   );
 }

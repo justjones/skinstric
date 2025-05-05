@@ -4,6 +4,7 @@ import Header from '../Header';
 import demographics_circle from '../../assets/demographics_circle.png';
 import Nav from '../../assets/nav.png';
 import { useNavigate } from 'react-router-dom';
+import BackFooter from '../BackFooter';
 
 // Inline SVG component for selected diamond
 const SelectedDiamondSVG = () => (
@@ -52,16 +53,14 @@ export default function DemographicAnalysis() {
 
       <div className="demographic-analysis">
         <div className="demographic-analysis__header">
-        <h3>A. I. Analysis</h3>
-        <div className='subheader'>
-        <h1>Demographics</h1>
-        <img className='nav' src={Nav} />
-         
-                   
+          <h3>A. I. Analysis</h3>
+          <img className='nav' src={Nav} />
+          <div className='subheader'>
+            <h1>Demographics</h1>    
           </div>
-           
 
-          
+
+
           <p>predicted race & age</p>
         </div>
 
@@ -131,12 +130,8 @@ export default function DemographicAnalysis() {
       {/* Footer */}
       <div className="footer-container">
         <footer className="footer-row">
-          <div className="footer-back" onClick={handleBack}>
-            <div className="diamond-button">
-              <div className="triangle left" />
-            </div>
-            <span className="back-text">Back</span>
-          </div>
+        <BackFooter to="/phasetwo/demographicSummary" />
+
 
           <p className="footer__text">
             If A.I. estimate is wrong, select the correct one.

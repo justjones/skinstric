@@ -1,21 +1,29 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './BackFooter.css'; // Reusing the style
+import './ForwardFooter.css';
 
-export default function ForwardFooter({ to = '/page6', text = 'Proceed' }) {
+export default function ForwardFooter({ to = '/next', state = {}, white = false, onClick }) {
   const navigate = useNavigate();
 
+  const handleClick = () => {
+    if (onClick) {
+      onClick();
+    } else {
+      navigate(to, { state }); // ✅ use navigate with state
+    }
+  };
+
   return (
-    <footer className="forward-footer">
+    <footer className={`forward-footer ${white ? 'forward-footer--white' : ''}`}>
       <div
-        className="side-button-wrapper side-button-wrapper--right"
-        onClick={() => navigate(to)}
+        className="forward-button-wrapper"
+        onClick={handleClick}
         style={{ cursor: 'pointer' }}
       >
-        <div className="diamond-button">
-          <div className="triangle right" />
+        <span className="forward-text">Proceed</span>
+        <div className="forward-diamond">
+          <div className="forward-triangle" />
         </div>
-        <span className="side-text">{text}</span>
       </div>
     </footer>
   );

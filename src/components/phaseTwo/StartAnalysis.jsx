@@ -3,13 +3,17 @@ import './PhaseTwoGlobal.css';
 import './StartAnalysis.css';
 import Header from '../Header';
 import BackFooter from '../BackFooter';
+import { useLocation, useNavigate } from 'react-router-dom';
 import camera from '../../assets/camera.png';
 import gallery from '../../assets/gallery.png';
 
 export default function StartAnalysis() {
-  const [imageData, setImageData] = useState(null);
-  const [response, setResponse] = useState(null);
+  const { state } = useLocation();
+  const name = state?.name || '';
+  const location = state?.location || '';
+
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
@@ -18,28 +22,46 @@ export default function StartAnalysis() {
     const reader = new FileReader();
     reader.onloadend = async () => {
       const base64Image = reader.result.split(',')[1]; // remove data mime prefix
-      setImageData(base64Image);
       await sendImageToAPI(base64Image);
     };
     reader.readAsDataURL(file);
   };
 
   const sendImageToAPI = async (base64Image) => {
+    if (!name || !location) {
+      alert('Missing name or location. Please go back and enter your info.');
+      return;
+    }
+
     setLoading(true);
     try {
+      console.log('Sending to API:', { name, location, image: base64Image.slice(0, 30) + '...' });
+
       const res = await fetch(
         'https://us-central1-api-skinstric-ai.cloudfunctions.net/skinstricPhaseOne',
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ image: base64Image }),
+          body: JSON.stringify({
+            image: base64Image,
+            name,
+            location,
+          }),
         }
       );
 
       const data = await res.json();
-      setResponse(data);
+
+      if (data.success) {
+        navigate('/phasetwo/preparingAnalysis', {
+          state: { response: data }, // optional: pass along API response
+        });
+      } else {
+        alert('Image upload failed: ' + data.message);
+      }
     } catch (error) {
       console.error('Error uploading image:', error);
+      alert('There was a problem uploading the image. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -94,12 +116,6 @@ export default function StartAnalysis() {
 
         <div className="upload-section">
           {loading && <p>Analyzing image...</p>}
-          {response && (
-            <div className="results">
-              <h3>Demographic Prediction</h3>
-              <pre>{JSON.stringify(response, null, 2)}</pre>
-            </div>
-          )}
         </div>
       </div>
 

@@ -1,39 +1,41 @@
-import React from "react";
-import "./Page3.css";
-import Header from "./Header";
-import rombuses_center from "../assets/rombuses_center.png";
-import { useNavigate, useLocation } from "react-router-dom";
-import BackFooter from "./BackFooter";
-import ForwardFooter from "./ForwardFooter";
-
-
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import Header from './Header';
+import rombuses_center from '../assets/rombuses_center.png';
+import BackFooter from './BackFooter';
+import ForwardFooter from './ForwardFooter';
+import './Page5.css';
 
 export default function Page5() {
-  const navigate = useNavigate();
-  const locationData = useLocation();
-  const userLocation = locationData.state?.location || "Unknown";
+  const { state } = useLocation();
+  const name = state?.name || '';
+  const location = state?.location || '';
 
   return (
     <div className="page5">
       <Header rightButtonText={null} />
 
-      <h2 className="page3__intro-text">To start analysis</h2>
+      <h2 className="page5__intro-text">To start analysis</h2>
 
-      <div className="page3__main">
-        <div className="page3__diamond-container">
+      <div className="page5__main">
+        <div className="page5__diamond-container">
           <img
             src={rombuses_center}
             alt="rombuses_center"
-            className="page3__diamond-image"
+            className="page5__diamond-image"
           />
-          <div className="page3__diamond-text">
+          <div className="page5__diamond-text">
             <p>Where are you from?</p>
-            <h3>{userLocation}</h3>
+            <h3>{location}</h3>
           </div>
         </div>
       </div>
+
+      <ForwardFooter
+        to="/phasetwo/startAnalysis"
+        state={{ name, location }}
+      />
       <BackFooter />
-      <ForwardFooter to="/phasetwo/startAnalysis" />
     </div>
   );
 }
