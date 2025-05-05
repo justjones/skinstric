@@ -9,7 +9,7 @@ export default function ForwardFooter({ to = '/next', state = {}, white = false,
     if (onClick) {
       onClick();
     } else {
-      navigate(to, { state }); // ✅ use navigate with state
+      navigate(to, { state });
     }
   };
 

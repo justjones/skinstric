@@ -34,7 +34,7 @@
 
   .take-pic {
     position: absolute;
-    right: 40px;            /* distance from the right edge */
+    right: 40px;            
     top: 50%;
     transform: translateY(-50%);
     z-index: 100;
@@ -43,7 +43,7 @@
   }
   
   .take-pic img {
-    max-width: 150px;        /* adjust size as needed */
+    max-width: 150px;        
     height: auto;
     display: block;
     background-color: transparent;
@@ -59,7 +59,7 @@
     gap: 12px;
     z-index: 100;
     cursor: pointer;
-    background: transparent; /* <-- ensure no background */
+    background: transparent; 
     z-index: 10;
   }
   
@@ -174,10 +174,10 @@
   
   .captured-selfie-overlay {
     position: absolute;
-    top: 32%; /* Adjust based on Figma layout */
+    top: 32%; 
     left: 50%;
     transform: translateX(-50%);
-    width: 180px; /* Adjust as needed to fit the frame */
+    width: 180px; 
     border-radius: 8px;
     border: 2px solid #000;
   }
@@ -195,7 +195,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.2); /* 40% black */
+    background-color: rgba(0, 0, 0, 0.2); 
     z-index: 2;
   }
   

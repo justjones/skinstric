@@ -1,5 +1,5 @@
 import React from 'react';
-import './ImagePage2.css'; // You can keep using the same CSS file if shared styles apply
+import './ImagePage2.css'; 
 import Page1 from '../../assets/imagePage1.png';
 
 export default function ImagePage2() {

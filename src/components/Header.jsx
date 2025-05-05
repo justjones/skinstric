@@ -2,7 +2,7 @@ import React from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
 
-// ✅ CORRECT
+
 export default function Header({ title = "INTRO", rightButtonText, onRightButtonClick }) {
 
   return (
@@ -13,10 +13,10 @@ export default function Header({ title = "INTRO", rightButtonText, onRightButton
       </Link>
 
       {rightButtonText && (
-  <button className="enter-code-btn" onClick={onRightButtonClick}>
-    {rightButtonText}
-  </button>
-)}
+        <button className="enter-code-btn" onClick={onRightButtonClick}>
+          {rightButtonText}
+        </button>
+      )}
     </div>
   );
 }

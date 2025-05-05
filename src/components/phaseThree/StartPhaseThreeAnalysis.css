@@ -24,14 +24,6 @@ body {
     opacity: 0.5;
 }
 
-/* .float-info {
-    position: absolute;
-    left: 40%;
-    transform: translateX(-50%);
-    top: 40%;
-    z-index: 10;
-  } */
-
   .permission-overlay {
     position: absolute;
     top: 40%;

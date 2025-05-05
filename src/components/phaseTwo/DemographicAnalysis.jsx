@@ -56,7 +56,7 @@ export default function DemographicAnalysis() {
           <h3>A. I. Analysis</h3>
           <img className='nav' src={Nav} />
           <div className='subheader'>
-            <h1>Demographics</h1>    
+            <h1>Demographics</h1>
           </div>
 
 
@@ -130,7 +130,7 @@ export default function DemographicAnalysis() {
       {/* Footer */}
       <div className="footer-container">
         <footer className="footer-row">
-        <BackFooter to="/phasetwo/demographicSummary" />
+          <BackFooter to="/phasetwo/demographicSummary" />
 
 
           <p className="footer__text">

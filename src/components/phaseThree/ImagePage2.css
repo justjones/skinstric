@@ -66,7 +66,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: transparent; /* <-- remove white background */
+    background: transparent; 
     overflow: visible;
     box-sizing: border-box;
     z-index: 10;

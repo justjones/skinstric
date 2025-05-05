@@ -39,7 +39,7 @@ export default function Page4() {
       console.log("Submitting to API:", payload);
       await sendPhaseOneData(payload);
 
-      // Navigate to Page5 with full state
+
       navigate('/page5', {
         state: {
           name: payload.name,
