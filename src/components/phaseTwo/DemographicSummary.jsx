@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './PhaseTwoGlobal.css';
 import './DemographicSummary.css';
 import Header from '../Header';
 import demographics_circle from '../../assets/demographics_circle.png';
 import { useNavigate } from 'react-router-dom';
+import BackFooter from '../BackFooter';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 // Optional: selected diamond SVG for race confidence
 const SelectedDiamondSVG = () => (
@@ -30,6 +33,10 @@ export default function DemographicSummary() {
   const handleBack = () => navigate(-1);
   const handleConfirm = () => navigate('/phasetwo/demographicAnalysis');
 
+    useEffect(() => {
+      Aos.init({ duration: 3000 });
+    }, [])
+
   return (
     <>
       <Header title="Analysis" rightButtonText={null} />
@@ -38,9 +45,9 @@ export default function DemographicSummary() {
         <h1>Demographics</h1>
         <p>predicted race & age</p>
 
-        <section className="main-content">
+        <section className="main-content" >
           {/* LEFT PANEL */}
-          <div className="left-panel">
+          <div className="left-panel" data-aos="fade-right">
             <div className="summary-panel selected item-panel--race">
               <p className="summary-panel value-race">{selectedRace}</p>
               <p className="summary-panel label-race">Race</p>
@@ -56,7 +63,7 @@ export default function DemographicSummary() {
           </div>
 
           {/* CENTER PANEL */}
-          <div className="center-panel">
+          <div className="center-panel" data-aos="fade-up">
             <div className="center-left">
               <h2 className="center-title">{selectedRace}</h2>
             </div>
@@ -66,7 +73,7 @@ export default function DemographicSummary() {
           </div>
 
           {/* RIGHT PANEL */}
-          <div className="right-panel--main">
+          <div className="right-panel--main" data-aos="fade-left">
             <div className="right-panel">
               <div className="confidence-header">
                 <span>Race</span>
@@ -97,19 +104,20 @@ export default function DemographicSummary() {
 
       {/* FOOTER */}
       <div className="footer-container">
-        <footer className="footer-row">
-          <div className="footer-back" onClick={handleBack}>
-            <div className="diamond-button">
-              <div className="triangle left" />
-            </div>
-            <span className="back-text">Back</span>
-          </div>
+      <footer className="footer-row">
+  <BackFooter to="/phasetwo/demographicsEstimate" />
 
-          <p className="footer__text">If A.I. estimate is wrong, select the correct one.</p>
+  <p className="footer__text">
+    If A.I. estimate is wrong, select the correct one.
+  </p>
 
-          <button className="reset-button" onClick={() => setSelectedRace('East Asian')}>Reset</button>
-          <button className="confirm-button" onClick={handleConfirm}>Confirm</button>
-        </footer>
+  <div className="dual-button-footer">
+    <button className="reset-button">Reset</button>
+    <button className="confirm-button" onClick={handleConfirm}>
+      Confirm
+    </button>
+  </div>
+</footer>
       </div>
     </>
   );

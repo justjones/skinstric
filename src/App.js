@@ -15,6 +15,7 @@ import StartPhaseThreeAnalysis from "./components/phaseThree/StartPhaseThreeAnal
 import CameraSetUp from "./components/phaseThree/CameraSetUp";
 import ImagePage1 from "./components/phaseThree/ImagePage1";
 import ImagePage2 from "./components/phaseThree/ImagePage2";
+import AOS from 'aos';
 
 
 function App() {

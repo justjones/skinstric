@@ -11,7 +11,7 @@ export default function PreparingAnalysis() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate('/phasetwo/demographicsEstimate', {
+      navigate('/phasethree/ImagePage2', {
         state: { response }, // optional: pass along data
       });
     }, 2500); // Adjust delay as needed

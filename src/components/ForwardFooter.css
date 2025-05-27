@@ -1,54 +1,59 @@
 .forward-footer {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-    background-color: transparent;
-  }
-  
-  .forward-button-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  
-  .forward-diamond {
-    width: 40px;
-    height: 40px;
-    transform: rotate(45deg);
-    border: 2px solid #1A1B1C;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-  }
-  
-  .forward-triangle {
-    width: 0;
-    height: 0;
-    transform: rotate(-45deg);
-    border-top: 7px solid transparent;
-    border-bottom: 7px solid transparent;
-    border-left: 10px solid #1A1B1C;
-    margin-left: 4px;
-  }
-  
-  .forward-text {
-    font-size: 14px;
-    text-transform: uppercase;
-    font-weight: bold;
-    background-color: transparent;
-  }
-  
-  .forward-footer--white .forward-diamond {
-    border-color: #fff;
-  }
-  
-  .forward-footer--white .forward-triangle {
-    border-left-color: #fff;
-  }
-  
-  .forward-footer--white .forward-text {
-    color: #fff;
-  }
-  
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  background-color: transparent;
+}
+
+.forward-button-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: transparent;
+}
+
+.forward-diamond {
+  width: 40px;
+  height: 40px;
+  transform: rotate(45deg);
+  border: 2px solid #1a1b1c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.forward-triangle {
+  width: 0;
+  height: 0;
+  transform: rotate(-45deg) scale(0.75);
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 10px solid #1a1b1c;
+  margin-left: 4px;
+}
+
+.forward-text {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: transparent !important;
+}
+
+.forward-footer--white .forward-diamond {
+  border-color: #fff;
+}
+
+.forward-footer--white .forward-triangle {
+  border-left-color: #fff;
+}
+
+.forward-footer--white .forward-text {
+  color: #fff;
+  background-color: transparent !important;
+}
+
+.forward-footer {
+  z-index: 1001;
+}

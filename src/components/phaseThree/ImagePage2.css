@@ -45,53 +45,8 @@
     z-index: 100;
     background-color: transparent;
   }
+  
 
-  .back-btn {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    z-index: 100;
-    cursor: pointer;
-    background: transparent; /* <-- ensure no background */
-  }
-  
-  .diamond-button {
-    width: 36px;
-    height: 36px;
-    border: 2px solid #fcfcfc;
-    transform: rotate(45deg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: transparent; 
-    overflow: visible;
-    box-sizing: border-box;
-    z-index: 10;
-  }
-  
-  .triangle.left {
-    width: 0;
-    height: 0;
-    border-top: 6px solid transparent;
-    border-bottom: 6px solid transparent;
-    border-right: 10px solid #fcfcfc;
-    transform: rotate(-45deg);
-    margin-top: 4px;
-     z-index: 10;
-  }
-  
-  .back-text {
-    color: #fcfcfc;
-    font-size: 14px;
-    letter-spacing: 1px;
-    font-weight: 500;
-    text-transform: uppercase;
-    background-color: transparent;
-  }
-  
   .footer-wrapper {
     position: absolute;
     bottom: 8px;
@@ -146,35 +101,10 @@
     background-color: transparent;
   }
   
-  .proceed-btn {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    z-index: 100;
-    cursor: pointer;
-    background-color: transparent;
-    
-  }
+
   
-  .proceed-text {
-    color: #fcfcfc;
-    font-size: 14px;
-    letter-spacing: 1px;
-    font-weight: 500;
-    text-transform: uppercase;
-    background-color: transparent;
-  }
+
   
-  .triangle.right {
-    width: 0;
-    height: 0;
-    border-top: 6px solid transparent;
-    border-bottom: 6px solid transparent;
-    border-left: 10px solid #fcfcfc;
-    margin-top: 4px;
-  }
+
   
   

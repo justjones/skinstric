@@ -3,7 +3,7 @@
 body {
   font-family: "Inter", sans-serif; 
 }
-.test-page {
+main.test-page {
     position: relative;
     background-color: #fcfcfc;
     color: #1A1B1C;
@@ -136,7 +136,7 @@ body {
   }
   
   /* DIAMOND BUTTON */
-  .diamond-button {
+  .test-diamond-button {
     width: 50px;
     height: 50px;
     border: 2px solid #1A1B1C;
@@ -145,16 +145,17 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 20;
   }
   
-  .triangle {
+  .test-triangle {
     width: 0;
     height: 0;
     border-style: solid;
     transform: rotate(-45deg);
   }
   
-  .triangle.right {
+  .test-triangle.right {
     border-width: 6px 0 6px 10px;
     border-color: transparent transparent transparent #1A1B1C;
   }
@@ -169,6 +170,78 @@ body {
     transform: translateY(-50%) scaleX(-1); /* Flip + center */
     z-index: 0;
   }
+
+
+   /* ---------- MOBILE ----------  */
+
+  @media only screen and (min-width: 300px) and (max-width: 500px) {
+
+    main.test-page {
+      display: block;
+    }
+
+    .test__image-wrapper {
+      position: absolute;
+      background-color: transparent;
+      width: 401px;
+      height: 401px;
+      top: 50%;
+      right: -100px;
+      transform: translateY(-50%) scaleX(-1); /* Flip + center */
+      z-index: 0;
+    }
+
+    .test__image {     
+      background-color: transparent;
+    }
+
+    .test__title h1 {
+      font-size: 28px;
+      font-weight: 500;
+      line-height: 42px;
+      margin-left: 20;
+      margin-top: 40px;
+      z-index: 20;
+    }
+  }
+
+/* ---------- MOBILE (≤768px) ---------- */
+@media only screen and (max-width: 768px) and (min-width: 500px) {
+  main.test-page {
+      display: block;
+    }
+
+  .test-title{
+      position: relative;
+      background-color: #fcfcfc;
+      color: #1A1B1C;
+      height: 100vh;
+      display: flex;      
+      align-items: center;
+      padding-left: 0px;
+      justify-content: start;
+    }
+
+    .test__title h1 {
+      font-size: 28px;
+      font-weight: 500;
+      line-height: 42px;
+      margin-left: 20px;
+      margin-top: 55%;
+      z-index: 20;
+    }
+
+    
+
+}
+
+
+
+
+/* ---------- TABLET (769px–1024px) ---------- */
+@media only screen and (min-width: 769px) and (max-width: 1024px)
   
 
+/* ---------- SMALL DESKTOP (1025px–1280px) ---------- */
+@media only screen and (min-width: 1025px) and (max-width: 1280px)
   
