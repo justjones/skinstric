@@ -270,5 +270,19 @@
   color: black;
   border: 1px solid black;
 }
+.dual-button-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.reset-button,
+.confirm-button {
+  padding: 8px 16px;
+  font-size: 14px;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin: 8px;
+}
 
 

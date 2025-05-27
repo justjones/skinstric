@@ -1,21 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Header from './Header';
 import rombuses_center from '../assets/rombuses_center.png';
 import BackFooter from './BackFooter';
 import ForwardFooter from './ForwardFooter';
 import './Page5.css';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 export default function Page5() {
   const { state } = useLocation();
   const name = state?.name || '';
   const location = state?.location || '';
 
+    useEffect(() => {
+      Aos.init({ duration: 3000 });
+    }, [])
+
   return (
     <div className="page5">
       <Header rightButtonText={null} />
 
-      <h2 className="page5__intro-text">To start analysis</h2>
+      <h2 className="page5__intro-text" data-aos="fade-left">To start analysis</h2>
 
       <div className="page5__main">
         <div className="page5__diamond-container">
@@ -25,7 +31,7 @@ export default function Page5() {
             className="page5__diamond-image"
           />
           <div className="page5__diamond-text">
-            <p>Where are you from?</p>
+            <p>Welcome..{name} From</p>
             <h3>{location}</h3>
           </div>
         </div>
@@ -35,7 +41,7 @@ export default function Page5() {
         to="/phasetwo/startAnalysis"
         state={{ name, location }}
       />
-      <BackFooter />
+      <BackFooter to="../page4" />
     </div>
   );
 }

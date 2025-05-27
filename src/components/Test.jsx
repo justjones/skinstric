@@ -1,18 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Test.css';
 import rombuses_right from '../assets/rombuses_right.png';
 import { Link } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 export default function Test() {
+
+  useEffect(() => {
+      Aos.init({ duration: 3000 });
+    }, [])
+
   return (
     <>
       <Header rightButtonText="ENTER CODE" />
 
       <main className="test-page">
 
-        <div className="test__title">
+        <div className="test__title" data-aos="zoom-in-up">
           <h1>
             Sophisticated<br />
             skincare
@@ -24,10 +31,10 @@ export default function Test() {
         </div>
 
         <div className="test__side">
-          <Link to="/page3" className="side-button-wrapper">
-            <span className="side-text">Take Test</span>
-            <div className="diamond-button">
-              <div className="triangle right" />
+          <Link to="/page3" className="side-button-wrapper" data-aos="flip-up">
+            <span className="side-text" data-aos="fade-right">Take Test</span>
+            <div className="test-diamond-button" >
+              <div className="test-triangle right" />
             </div>
           </Link>
         </div>

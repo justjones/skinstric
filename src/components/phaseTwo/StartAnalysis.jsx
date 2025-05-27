@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './PhaseTwoGlobal.css';
 import './StartAnalysis.css';
 import Header from '../Header';
@@ -6,6 +6,9 @@ import BackFooter from '../BackFooter';
 import { useLocation, useNavigate } from 'react-router-dom';
 import camera from '../../assets/camera.png';
 import gallery from '../../assets/gallery.png';
+import ForwardFooter from '../ForwardFooter';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 export default function StartAnalysis() {
   const { state } = useLocation();
@@ -66,34 +69,40 @@ export default function StartAnalysis() {
       setLoading(false);
     }
   };
+  const [selectedDiamond, setSelectedDiamond] = useState(null);
+
+  useEffect(() => {
+    Aos.init({ duration: 3000 });
+  }, [])
 
   return (
     <>
       <Header rightButtonText={null} />
-      <div className="start-analysis">
-        <h1>To Start Analysis</h1>
+      <div className="start-analysis" >
+        <h1 data-aos="fade-in">To Start Analysis</h1>
 
         <div className="diamond-container">
           {/* Left: Camera */}
-          <div className="diamond">
-            <img src={camera} alt="Allow AI to scan your face" className="diamond-image" />
-            <button
-              type="button"
-              className="click-zone"
-              onClick={() => document.getElementById('cameraInput').click()}
-              aria-label="Scan Face"
+          <div className="diamond camera" data-aos="fade-right">
+    <img src={camera} alt="Allow AI to scan your face" className="diamond-image" />
+    <button
+      type="button"
+      className="click-zone"
+      onClick={() => navigate('/phasethree/StartPhaseThreeAnalysis')}
+
+      aria-label="Scan Face"
             />
           </div>
 
           {/* Right: Gallery */}
-          <div className="diamond">
-            <img src={gallery} alt="Allow AI access gallery" className="diamond-image" />
-            <button
-              type="button"
-              className="click-zone"
-              onClick={() => document.getElementById('galleryInput').click()}
-              aria-label="Select from Gallery"
-            />
+           <div className="diamond gallery" data-aos="fade-left">
+    <img src={gallery} alt="Allow AI access gallery" className="diamond-image" />
+    <button
+      type="button"
+      className="click-zone"
+      onClick={() => document.getElementById('galleryInput').click()}
+      aria-label="Select from Gallery"
+    />
           </div>
         </div>
 
@@ -119,7 +128,8 @@ export default function StartAnalysis() {
         </div>
       </div>
 
-      <BackFooter />
+      <BackFooter to="../page3" />
+      <ForwardFooter to="/phasetwo/preparingAnalysis" white={false} />
     </>
   );
 }

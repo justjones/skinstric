@@ -42,6 +42,33 @@
   z-index: 1;
 }
 
+@keyframes rotateImage {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes flashImage {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.rotate-flash {
+  animation:
+    rotateImage 10s linear infinite,
+    flashImage 2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+
+
 .page3__diamond-text {
   position: absolute;
   top: 50%;

@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import './ImagePage1.css';
 import TakePic from '../../assets/take-pic.png';
 import BackBtn from '../../assets/backBtnWhite.png'
 import { useNavigate } from 'react-router-dom';
+import BackFooter from '../BackFooter';
+import ForwardFooter from '../ForwardFooter';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 
 export default function ImagePage1() {
@@ -11,6 +15,10 @@ export default function ImagePage1() {
   const selfie = location.state?.selfie;
 
   const navigate = useNavigate();
+
+    useEffect(() => {
+      Aos.init({ duration: 3000 });
+    }, [])
 
   return (
     <>
@@ -21,7 +29,7 @@ export default function ImagePage1() {
         {selfie && (
           <>
             <img
-              src={`data:image/jpeg;base64,${selfie}`}
+              src={selfie}
               alt="User Selfie"
               className="captured-selfie-fullscreen"
             />
@@ -35,21 +43,15 @@ export default function ImagePage1() {
         )}
 
         {/* Keep the floating camera icon */}
-        <div className="take-pic">
-          <img src={TakePic} alt="Take Pic Icon" />
-        </div>
+<div className="take-pic" onClick={() => navigate('/phasethree/CameraSetUp')} style={{ cursor: 'pointer' }}>
+  <img src={TakePic} alt="Retake Picture" />
+</div>
 
         {/* Footer elements */}
         <div className="footer-wrapper">
-          
-          <span className="back-text">BACK</span>
-          <div className='backbtn'>
-            <img className='back-btn' 
-            src={BackBtn} 
-            alt="back button" 
-            onClick={() => navigate(-1)}
-            />
-          </div>
+
+
+          <BackFooter to="/phasetwo/demographicAnalysis" white={true} />
           <p className="footer-text">To get better results make sure to have</p>
 
           <ul className="footer-list">
@@ -57,6 +59,7 @@ export default function ImagePage1() {
             <li>frontal pose</li>
             <li>adequate lighting</li>
           </ul>
+          <ForwardFooter white={true} disabled={true} />
         </div>
       </div>
     </>

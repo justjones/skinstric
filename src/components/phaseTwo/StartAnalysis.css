@@ -5,10 +5,11 @@ body {
 }
 
 .start-analysis h1 {
-  font-size: 1.8rem;
+  font-size: 1rem;
   margin-bottom: 2rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
+  margin-left: 28px;
 }
 
 /* Diamond layout container */
@@ -67,5 +68,3 @@ body {
   font-family: monospace;
   font-size: 0.9rem;
 }
-
-

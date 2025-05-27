@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './DemographicAnalysis.css';
 import Header from '../Header';
 import demographics_circle from '../../assets/demographics_circle.png';
 import Nav from '../../assets/nav.png';
 import { useNavigate } from 'react-router-dom';
 import BackFooter from '../BackFooter';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 // Inline SVG component for selected diamond
 const SelectedDiamondSVG = () => (
@@ -46,13 +48,17 @@ export default function DemographicAnalysis() {
   ];
 
   const selectedAgeRange = '20-29';
+ 
+  useEffect(() => {
+    Aos.init({ duration: 3000 });
+  }, [])
 
   return (
     <>
       <Header title="Analysis" rightButtonText={null} />
 
       <div className="demographic-analysis">
-        <div className="demographic-analysis__header">
+        <div className="demographic-analysis__header" data-aos="fade-right">
           <h3>A. I. Analysis</h3>
           <img className='nav' src={Nav} />
           <div className='subheader'>
@@ -64,9 +70,9 @@ export default function DemographicAnalysis() {
           <p>predicted race & age</p>
         </div>
 
-        <section className="analysis-main-content">
+        <section className="analysis-main-content" data-aos="fade-up">
           {/* Left Panel */}
-          <div className="analysis-left-panel">
+          <div className="analysis-left-panel" data-aos="fade-right">
             <div className="analysis-panel--item">
               <p className="analysis-panel--value">East Asian</p>
               <p className="analysis-panel--label">Race</p>
@@ -97,7 +103,7 @@ export default function DemographicAnalysis() {
 
           {/* Right Panel */}
           <div className="analysis-right-panel-wrapper">
-            <div className="analysis-right-panel">
+            <div className="analysis-right-panel" data-aos="fade-left">
               <div className="confidence-header">
                 <span>Race</span>
                 <span>A.I. Confidence</span>

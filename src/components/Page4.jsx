@@ -6,6 +6,8 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import BackFooter from './BackFooter';
 import ForwardFooter from '../components/ForwardFooter';
 import { sendPhaseOneData } from '../services/APIServices';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 export default function Page4() {
   const navigate = useNavigate();
@@ -57,7 +59,7 @@ export default function Page4() {
   return (
     <div className="page3">
       <Header rightButtonText={null} />
-      <h2 className="page3__intro-text">To start analysis</h2>
+      <h2 className="page3__intro-text" data-aos="fade-left">To start analysis</h2>
 
       <div className="page3__main">
         <div
@@ -67,7 +69,7 @@ export default function Page4() {
           <img
             src={rombuses_center}
             alt="rombuses_center"
-            className="page3__diamond-image"
+            className="page3__diamond-image rotating-image flashing-image rotate-flash"
           />
           <div className="page3__diamond-text">
             {isTyping ? (
@@ -87,8 +89,8 @@ export default function Page4() {
               />
             ) : (
               <>
-                <p>Click to type</p>
-                <h3>Where are you from?</h3>
+                <p data-aos="fade-left">Click to type</p>
+                <h3 data-aos="fade-right">Where are you from?</h3>
               </>
             )}
           </div>
@@ -96,7 +98,7 @@ export default function Page4() {
       </div>
 
       <ForwardFooter to={null} white={false} onClick={handleNext} />
-      <BackFooter />
+      <BackFooter to="../page3" />
     </div>
   );
 }

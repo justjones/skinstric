@@ -25,13 +25,15 @@
 }
 
 .back-triangle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
   width: 0;
   height: 0;
-  transform: rotate(-45deg);
   border-top: 7px solid transparent;
   border-bottom: 7px solid transparent;
   border-right: 10px solid #000;
-  margin-right: 4px;
 }
 
 .back-text {
@@ -39,6 +41,8 @@
   text-transform: uppercase;
   font-weight: bold;
   background-color: transparent;
+  color: #000;
+  
 }
 
 .back-footer--white .back-diamond {
@@ -53,6 +57,4 @@
   color: #fff;
 }
 
-.forward-footer {
-  z-index: 1001;
-}
+
