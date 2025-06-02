@@ -1,21 +1,32 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import './ImagePage2.css';
-import Page1 from '../../assets/imagePage1.png';
 import BackFooter from '../BackFooter';
 import ForwardFooter from '../ForwardFooter';
 
 export default function ImagePage2() {
+  const location = useLocation();
+  const selfie = location.state?.selfie; 
+  const isFromGallery = selfie?.startsWith('data:image');
+
   return (
     <>
       <div className="phase-three-image1">
         <header>skinstric &nbsp; [ &nbsp;&nbsp;&nbsp;&nbsp; ]</header>
 
-        <div className="img-wrapper">
-          <img src={Page1} alt="Page Background" />
+        <div className="wrapper-img">
+          {selfie ? (
+            <img
+            src={selfie}
+            alt="Captured Selfie"
+            className={`captured-selfie ${isFromGallery ? 'from-gallery' : 'from-camera'}`}
+/>
+          ) : (
+            <p className="error-text">No image found</p>
+          )}
           <p className="shot-text">Great Shot!</p>
         </div>
 
-        {/* Custom footer tips (middle text + list) */}
         <div className="footer-wrapper">
           <p className="footer-text">To get better results make sure to have</p>
           <ul className="footer-list">
@@ -25,9 +36,8 @@ export default function ImagePage2() {
           </ul>
         </div>
 
-        {/* Use shared footer components */}
-        <BackFooter to="/phasetwo/DemographicAnalysis" white={true} />
-        <ForwardFooter to="/phasethree/analysis" white={true} />
+        <BackFooter to="/phasetwo/DemographicAnalysis" white />
+        <ForwardFooter to="/phasetwo/demographicsEstimate" white />
       </div>
     </>
   );

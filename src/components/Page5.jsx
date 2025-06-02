@@ -31,17 +31,13 @@ export default function Page5() {
             className="page5__diamond-image"
           />
           <div className="page5__diamond-text">
-            <p>Welcome..{name} From</p>
-            <h3>{location}</h3>
+            <h3>Thank you!</h3>
+            <p>Proceed to the next step</p>            
           </div>
         </div>
-      </div>
-
-      <ForwardFooter
-        to="/phasetwo/startAnalysis"
-        state={{ name, location }}
-      />
-      <BackFooter to="../page4" />
+      </div>      
+      <BackFooter to="/" />
+      <ForwardFooter to='/phasethree/startPhaseThreeAnalysis'/>
     </div>
   );
 }

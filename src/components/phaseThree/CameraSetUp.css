@@ -84,8 +84,8 @@ video {
 }
 
 .rombuses-image {
-  width: 75%;
-  max-width: 700px;
+  width: 80%;
+  max-width: 800px;
 }
 
 .camera-text {
@@ -93,7 +93,8 @@ video {
   top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: black;
+  color: rgb(0, 0, 0);
+  font-size: 13px;
   font-weight: bold;
   text-align: center;
   background-color: transparent;
@@ -124,7 +125,7 @@ video {
   background-color: black;
   color: white;
   border: none;
-  font-size: 16px;
+  font-size: 12px;
   cursor: pointer;  
 }
 
@@ -157,7 +158,6 @@ video {
 
 .rombuses-image {
   animation: rotateImage 10s linear infinite;
-  /* optional enhancements */
   transform-origin: center;
 }
 

@@ -15,6 +15,7 @@ import StartPhaseThreeAnalysis from "./components/phaseThree/StartPhaseThreeAnal
 import CameraSetUp from "./components/phaseThree/CameraSetUp";
 import ImagePage1 from "./components/phaseThree/ImagePage1";
 import ImagePage2 from "./components/phaseThree/ImagePage2";
+import ProcessingInformation from "./components/ProcessingInformation"
 import AOS from 'aos';
 
 
@@ -28,6 +29,7 @@ function App() {
           <Route path="/page3" element={<Page3 />} />
           <Route path="/page4" element={<Page4 />} />
           <Route path="/page5" element={<Page5 />} />
+          <Route path="/processingInformation" element={<ProcessingInformation />} />
 
           <Route path="/phasetwo/startAnalysis" element={<StartAnalysis />} />
           <Route path="/phasetwo/preparingAnalysis" element={<PreparingAnalysis />} />

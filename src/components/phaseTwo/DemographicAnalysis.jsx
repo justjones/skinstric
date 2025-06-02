@@ -34,7 +34,7 @@ export default function DemographicAnalysis() {
   const navigate = useNavigate();
 
   const handleBack = () => navigate(-1);
-  const handleConfirm = () => navigate('/phasethree/startPhaseThreeAnalysis');
+  const handleConfirm = () => navigate('/');
 
   const ageConfidenceData = [
     { label: '0-9', percent: '0%' },
