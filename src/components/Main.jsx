@@ -39,7 +39,7 @@ export default function Main() {
 
         {/* Right button */}
         <div className="main__side main__side--right">
-          <Link to="/test" className="main__button-wrapper main__button-wrapper--reverse" data-aos="fade-right">
+          <Link to="/page3" className="main__button-wrapper main__button-wrapper--reverse" data-aos="fade-right">
             <div className="main__diamond" >
               <div className="main__triangle main__triangle--right" />
             </div>

@@ -42,7 +42,7 @@ export default function Page4() {
       await sendPhaseOneData(payload);
 
 
-      navigate('/page5', {
+      navigate('/processingInformation',  {
         state: {
           name: payload.name,
           location: payload.location,
