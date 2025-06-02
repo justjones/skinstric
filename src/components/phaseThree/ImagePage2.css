@@ -32,12 +32,12 @@
     object-fit: cover;
     display: block;
     margin: auto;
-    margin-top: 38px;    
+    margin-top: 58px;    
   }
   
   .shot-text {
-    position: absolute;
-    top: 24%; /* adjust as needed */
+    position: absolute;    
+    margin-top: 50px;
     left: 49%;
     transform: translateX(-50%);
     color: #fcfcfc;
