@@ -1,104 +1,97 @@
-import React, { useState, useEffect } from 'react';
-import './Page3.css';
-import Header from './Header';
-import rombuses_center from '../assets/rombuses_center.png';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import BackFooter from './BackFooter';
+import Header from '../components/Header';
+import BackFooter from '../components/BackFooter';
 import ForwardFooter from '../components/ForwardFooter';
-import { sendPhaseOneData } from '../services/APIServices';
+import rombuses_center from '../assets/rombuses_center.png';
+import './Page3.css';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 
-export default function Page4() {
-  const navigate = useNavigate();
-  const locationHook = useLocation();
-  const name = locationHook.state?.name || '';
-
-  const [isTyping, setIsTyping] = useState(false);
+const Page4 = () => {
+  const [showInput, setShowInput] = useState(false);
   const [locationText, setLocationText] = useState('');
   const [submitting, setSubmitting] = useState(false);
+  const navigate = useNavigate();
+  const { state } = useLocation();
+  const name = state?.name || '';
 
   useEffect(() => {
-    if (!name) {
-      console.warn("Name missing in route state. Redirecting to Page 3.");
-      navigate('/page3');
-    }
-  }, [name, navigate]);
+    Aos.init({ duration: 3000 });
+  }, []);
 
-  const handleNext = async () => {
-    if (!locationText.trim()) {
-      alert('Please enter your location to continue.');
-      return;
-    }
+  const handleNavigation = () => {
+    if (!locationText.trim()) return;
 
     setSubmitting(true);
-    const payload = {
-      name: name.trim(),
-      location: locationText.trim(),
-    };
-
     try {
-      console.log("Submitting to API:", payload);
-      await sendPhaseOneData(payload);
-
-
-      navigate('/processingInformation',  {
+      navigate('/phasethree/CameraSetUp', {
         state: {
-          name: payload.name,
-          location: payload.location,
+          name,
+          location: locationText.trim(),
         },
       });
-    } catch (error) {
-      console.error('Failed to submit location:', error);
-      alert('Something went wrong submitting your data. Please try again.');
     } finally {
       setSubmitting(false);
     }
   };
 
+  const handleNext = () => {
+    if (!locationText.trim()) {
+      alert('Please enter your location to continue.');
+      return;
+    }
+    handleNavigation();
+  };
+
   return (
     <div className="page3">
       <Header rightButtonText={null} />
-      <h2 className="page3__intro-text" data-aos="fade-left">To start analysis</h2>
+
+      <h2 className="page3__intro-text" data-aos="fade-left">Now tell us where you're from</h2>
 
       <div className="page3__main">
         <div
           className="page3__diamond-container"
-          onClick={() => setIsTyping(true)}
+          onClick={() => setShowInput(true)}
         >
           <img
             src={rombuses_center}
             alt="rombuses_center"
             className="page3__diamond-image rotating-image flashing-image rotate-flash"
           />
+
           <div className="page3__diamond-text">
-            {isTyping ? (
+            {showInput ? (
               <input
                 className="page3__textarea"
                 value={locationText}
                 onChange={(e) => setLocationText(e.target.value)}
-                placeholder="Enter your location..."
+                placeholder="Where are you located?..."
                 autoFocus
                 disabled={submitting}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' && !e.shiftKey) {
                     e.preventDefault();
-                    handleNext();
+                    handleNavigation();
                   }
                 }}
               />
             ) : (
               <>
-                <p data-aos="fade-left">Click to type</p>
-                <h3 data-aos="fade-right">Where are you from?</h3>
+                <p data-aos="fade-left"> Click to type</p>
+                <h3 data-aos="fade-right">Enter Your Location</h3>
               </>
             )}
           </div>
         </div>
       </div>
 
+      {/* Footer buttons */}
       <ForwardFooter to={null} white={false} onClick={handleNext} />
-      <BackFooter to="../page3" />
+      <BackFooter to="/page3" />
     </div>
   );
-}
+};
+
+export default Page4;
