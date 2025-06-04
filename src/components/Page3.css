@@ -76,7 +76,7 @@
   transform: translate(-50%, -50%);
   text-align: center;
   z-index: 1;
-  pointer-events: none;
+  pointer-events: auto;
   color: #000;
 }
 

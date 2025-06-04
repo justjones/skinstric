@@ -9,16 +9,17 @@ import Aos from 'aos';
 import 'aos/dist/aos.css';
 
 const Page3 = () => {
-
-  const [isTyping, setIsTyping] = useState(false);
+  const [showInput, setShowInput] = useState(false);
   const [introText, setIntroText] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    Aos.init({ duration: 3000 });
+  }, []);
 
   const handleNavigation = () => {
     if (!introText.trim()) return;
-
 
     setSubmitting(true);
     try {
@@ -27,10 +28,6 @@ const Page3 = () => {
       setSubmitting(false);
     }
   };
-  
-  useEffect(() => {
-    Aos.init({ duration: 3000 });
-  }, [])
 
   const handleNext = () => {
     if (!introText.trim()) {
@@ -40,17 +37,15 @@ const Page3 = () => {
     handleNavigation();
   };
 
-
   return (
     <div className="page3">
       <Header rightButtonText={null} />
-
       <h2 className="page3__intro-text" data-aos="fade-left">To start analysis</h2>
 
       <div className="page3__main">
         <div
           className="page3__diamond-container"
-          onClick={() => setIsTyping(true)}
+          onClick={() => setShowInput(true)}
         >
           <img
             src={rombuses_center}
@@ -59,7 +54,7 @@ const Page3 = () => {
           />
 
           <div className="page3__diamond-text">
-            {isTyping ? (
+            {showInput ? (
               <input
                 className="page3__textarea"
                 value={introText}
@@ -84,7 +79,6 @@ const Page3 = () => {
         </div>
       </div>
 
-      {/* Footer buttons */}
       <ForwardFooter to={null} white={false} onClick={handleNext} />
       <BackFooter to="../test" />
     </div>
